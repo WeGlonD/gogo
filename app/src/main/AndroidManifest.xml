@@ -12,16 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gogo"
         tools:targetApi="31">
-        <activity
-            android:name=".ZeroActivity"
-            android:exported="true"
-            android:label="gogo"
-            android:theme="@style/Theme.Gogo">
-        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="gogo"
             android:theme="@style/Theme.Gogo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,12 +24,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".SecondActivity"
+            android:name=".FirstActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Gogo">
+        </activity>
+
+        <activity
+            android:name=".McActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Gogo">
         </activity>
     </application>
-
 </manifest>
