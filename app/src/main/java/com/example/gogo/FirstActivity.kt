@@ -18,5 +18,8 @@ class FirstActivity : ComponentActivity() {
             val intent = Intent(this, McActivity::class.java)
             startActivity(intent)
         }
+        binding.gotomain.setOnClickListener {
+            finish()
+        }
     }
 }

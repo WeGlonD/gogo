@@ -1,13 +1,9 @@
 package com.example.gogo
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.gogo.databinding.ActivityMcBinding
@@ -29,7 +25,7 @@ class McActivity : AppCompatActivity() {
         val adapter = MyPagerAdapter(this)
         viewPager.adapter = adapter
 
-        val tabTitles = listOf("첫번째", "두번째", "세번째")
+        val tabTitles = listOf("버거", "맥모닝", "사이드", "맥카페")
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = tabTitles[position]
@@ -40,14 +36,15 @@ class McActivity : AppCompatActivity() {
         FragmentStateAdapter(activity) {
 
         override fun getItemCount(): Int {
-            return 3 // 탭의 개수를 지정하세요.
+            return 4 // 탭의 개수를 지정하세요.
         }
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> FragmentA()
-                1 -> FragmentB()
-                2 -> FragmentC()
+                0 -> FragmentA_mc()
+                1 -> FragmentB_mc()
+                2 -> FragmentC_mc()
+                3 -> FragmentD_mc()
                 else -> throw IllegalArgumentException("Invalid tab position: $position")
             }
         }
