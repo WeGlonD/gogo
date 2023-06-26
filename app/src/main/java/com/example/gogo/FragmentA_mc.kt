@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 
-@Suppress("UNREACHABLE_CODE")
 class FragmentA_mc : Fragment() {
 
 
