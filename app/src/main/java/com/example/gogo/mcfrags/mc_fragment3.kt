@@ -1,13 +1,13 @@
-package com.example.gogo
+package com.example.gogo.mcfrags
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-class FragmentC_mc : Fragment() {
+import com.example.gogo.R
 
-
+class mc_fragment3 : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -15,6 +15,6 @@ class FragmentC_mc : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_c_mc, container, false)
+        return inflater.inflate(R.layout.fragment_mc_c, container, false)
     }
 }

@@ -7,6 +7,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.gogo.databinding.ActivityMcBinding
+import com.example.gogo.mcfrags.mc_fragment1
+import com.example.gogo.mcfrags.mc_fragment2
+import com.example.gogo.mcfrags.mc_fragment3
+import com.example.gogo.mcfrags.mc_fragment4
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -41,10 +45,10 @@ class McActivity : AppCompatActivity() {
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> FragmentA_mc()
-                1 -> FragmentB_mc()
-                2 -> FragmentC_mc()
-                3 -> FragmentD_mc()
+                0 -> mc_fragment1()
+                1 -> mc_fragment2()
+                2 -> mc_fragment3()
+                3 -> mc_fragment4()
                 else -> throw IllegalArgumentException("Invalid tab position: $position")
             }
         }
