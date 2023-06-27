@@ -1,5 +1,4 @@
 package com.example.gogo
-
 data class FoodItem(
     val name: String,
     val calories: Int,
