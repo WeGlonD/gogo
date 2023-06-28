@@ -1,7 +1,9 @@
 package com.example.gogo
 data class FoodItem(
-    val name: String,
-    val calories: Int,
-    val fat: Int,
-    val carbohydrates: Int
+    var name: String,
+    var calories: Int,
+    var fat: Int,
+    var carbohydrates: Int,
+    var protein: Int,
+    var natrium: Int
 )
