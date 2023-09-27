@@ -41,7 +41,7 @@ class McActivity : AppCompatActivity() {
 
         override fun getItemCount(): Int {
             return 4 // 탭의 개수를 지정하세요.
-        }
+        }//dldslajflaja
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
