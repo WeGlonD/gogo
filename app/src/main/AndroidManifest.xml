@@ -31,6 +31,11 @@
             android:theme="@style/Theme.Gogo">
         </activity>
 
+        <activity android:name=".cartActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Gogo">
+        </activity>
+
         <activity
             android:name=".McActivity"
             android:exported="true"

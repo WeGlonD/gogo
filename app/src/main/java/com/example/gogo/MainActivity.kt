@@ -18,5 +18,10 @@ class MainActivity : ComponentActivity() {
             val intent = Intent(this, FirstActivity::class.java)
             startActivity(intent)
         }
+
+        binding.button02.setOnClickListener {
+            val intent = Intent(this, cartActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
