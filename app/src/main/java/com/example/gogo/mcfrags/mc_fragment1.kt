@@ -2,6 +2,7 @@ package com.example.gogo.mcfrags
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.example.gogo.FoodItem
 import com.example.gogo.R
+import com.example.gogo.cartActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -41,6 +43,11 @@ class mc_fragment1 : Fragment() {
         val mcBurger01 = view.findViewById<ImageButton>(R.id.mcburger01)
         mcBurger01.setOnClickListener {
             showCustomDialog(R.layout.popup_mc_a)
+        }
+        val floatingActionButton = view.findViewById<FloatingActionButton>(R.id.floatingbutton)
+        floatingActionButton.setOnClickListener {
+            val intent = Intent(this.requireContext(), cartActivity::class.java)
+            startActivity(intent)
         }
         return view
     }
