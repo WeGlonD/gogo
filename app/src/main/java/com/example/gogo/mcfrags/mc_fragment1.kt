@@ -1,11 +1,9 @@
 package com.example.gogo.mcfrags
 
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +12,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.gogo.FoodItem
 import com.example.gogo.R
 import com.example.gogo.cartActivity
@@ -105,7 +104,7 @@ class mc_fragment1 : Fragment() {
                 foodItem.natrium += ntValue
             }
 
-            val foodItemRef = databaseReference.child("Mc").push()
+            val foodItemRef = databaseReference.child("cart").child("제승").push()
             foodItemRef.setValue(foodItem)
         }
         dialog.show()

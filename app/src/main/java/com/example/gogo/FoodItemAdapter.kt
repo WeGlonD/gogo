@@ -5,8 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gogo.FoodItem
-import com.example.gogo.R
 
 class FoodItemAdapter(private val foodItemList: ArrayList<FoodItem>) : RecyclerView.Adapter<FoodItemAdapter.ViewHolder>() {
 
