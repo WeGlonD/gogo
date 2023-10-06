@@ -82,7 +82,7 @@
                 android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="yes"
+                android:text="로그아웃"
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>
