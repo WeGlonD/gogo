@@ -25,6 +25,9 @@ class LoginActivity : AppCompatActivity() {
         binding.emailLoginBtn.setOnClickListener {
             email_login()
         }
+        binding.regBtn.setOnClickListener {
+            Register()
+        }
 
     }
 
@@ -32,37 +35,29 @@ class LoginActivity : AppCompatActivity() {
         if(binding.emailEdt.text.toString().isNullOrEmpty() || binding.passwordEdt.text.toString().isNullOrEmpty()){
             Toast.makeText(this, "이메일 혹은 비밀번호를 입력해주세요",Toast.LENGTH_SHORT).show()
         }else{
-            signinAndsignup()
+            signin()
         }
     }
 
-    fun signinAndsignup(){
-        auth.createUserWithEmailAndPassword(binding.emailEdt.text.toString(), binding.passwordEdt.text.toString())
-            .addOnCompleteListener { task ->
-                if(task.isSuccessful){
-                    // email로 성공적으로 계정을 만들었을 경우
-                    moveMainPage(task.result?.user)
-                }else if(task.exception?.message.isNullOrEmpty()){
-                    Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
-                }else{
-                    // email의 계정이 이미 존재하는 경우
-                    signinEmail()
-                }
-            }
-    }
-
-    fun signinEmail(){
+    fun signin(){
         auth.signInWithEmailAndPassword(binding.emailEdt.text.toString(), binding.passwordEdt.text.toString())
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
-                    // login 성공
+                    // email로 로그인
                     moveMainPage(task.result?.user)
-                }else{
+                }else if(task.exception?.message.isNullOrEmpty()){
                     Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
+                }else
+                {
+                    Toast.makeText(this, "이메일 혹은 비밀번호를 확인해주세요",Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
+    private fun Register(){
+        startActivity(Intent(this, RegisterActivity::class.java))
+        finish()
+    }
     fun moveMainPage(user : FirebaseUser?){
         if(user != null){
             startActivity(Intent(this, MainActivity::class.java))

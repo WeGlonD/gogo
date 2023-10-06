@@ -32,6 +32,7 @@ class MainActivity : ComponentActivity() {
             auth.signOut();
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
