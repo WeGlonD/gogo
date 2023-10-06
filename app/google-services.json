@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "380103407056",
+    "firebase_url": "https://gogo-39a1d-default-rtdb.firebaseio.com",
+    "project_id": "gogo-39a1d",
+    "storage_bucket": "gogo-39a1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380103407056:android:28e756dbf81b17e39035d5",
+        "android_client_info": {
+          "package_name": "com.example.gogo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeOViFo4Y2eu4byqQQvKv1pR9TmJamnnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
