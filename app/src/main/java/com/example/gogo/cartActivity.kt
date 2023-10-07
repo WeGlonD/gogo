@@ -18,6 +18,7 @@ class cartActivity : ComponentActivity() {
     private lateinit var database: FirebaseDatabase
     private lateinit var recyclerView: RecyclerView
     private lateinit var foodItemList: ArrayList<FoodItem>
+    private lateinit var keyList: ArrayList<String>
     private lateinit var databaseReference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,17 +36,21 @@ class cartActivity : ComponentActivity() {
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
         foodItemList = ArrayList()
+        keyList = ArrayList()
 
-        val adapter = FoodItemAdapter(foodItemList)
+        val adapter = FoodItemAdapter(foodItemList, keyList, mcReference)
         recyclerView.adapter = adapter
+        adapter.notifyDataSetChanged()
 
         mcReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (postSnapshot in dataSnapshot.children) {
                     val foodItem = postSnapshot.getValue(FoodItem::class.java)
+                    val key = postSnapshot.key
 
                     foodItem?.let {
                         foodItemList.add(it)
+                        keyList.add(key!!)
                     }
                 }
                 adapter.notifyDataSetChanged()

@@ -111,7 +111,9 @@ class mc_fragment1 : Fragment() {
             if (uid != null) {
                 val databasePath = "cart/$uid"
                 val foodItemRef = databaseReference.child(databasePath).push()
-                foodItemRef.setValue(foodItem)
+                foodItemRef.setValue(foodItem).addOnSuccessListener {
+                    dialog.dismiss()
+                }
             }
         }
         dialog.show()
