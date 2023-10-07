@@ -17,6 +17,7 @@ import com.example.gogo.FoodItem
 import com.example.gogo.R
 import com.example.gogo.cartActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -104,8 +105,14 @@ class mc_fragment1 : Fragment() {
                 foodItem.natrium += ntValue
             }
 
-            val foodItemRef = databaseReference.child("cart").child("제승").push()
-            foodItemRef.setValue(foodItem)
+            val currentUser = FirebaseAuth.getInstance().currentUser
+            val uid = currentUser?.uid
+
+            if (uid != null) {
+                val databasePath = "cart/$uid"
+                val foodItemRef = databaseReference.child(databasePath).push()
+                foodItemRef.setValue(foodItem)
+            }
         }
         dialog.show()
     }

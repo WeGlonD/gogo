@@ -17,7 +17,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+        <Button
+            android:id="@+id/reg_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end|right"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="5dp"
+            android:text="회원가입" />
         <LinearLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -51,35 +58,13 @@
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
             <Button
                 android:id="@+id/email_login_btn"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:layout_gravity="left"
-                android:layout_marginLeft="20dp"
+                android:layout_gravity="center"
                 android:text="로그인" />
 
-            <Button
-                android:id="@+id/reg_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_gravity="right"
-                android:layout_marginLeft="200dp"
-                android:layout_marginRight="20dp"
-                android:text="회원가입" />
         </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
 
