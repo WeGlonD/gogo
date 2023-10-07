@@ -28,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
         binding.regBtn.setOnClickListener {
             Register()
         }
-
     }
 
     private fun email_login(){

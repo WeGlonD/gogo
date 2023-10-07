@@ -65,6 +65,15 @@
                 android:layout_gravity="center"
                 android:text="로그인" />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/email_find_btn"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="170dp"
+            android:background="@android:color/transparent"
+            android:text="비밀번호 찾기" />
+
+    </LinearLayout>
     </LinearLayout>
 
