@@ -2,6 +2,7 @@ package com.example.gogo.mcfrags
 
 import android.app.Dialog
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -72,6 +73,8 @@ class mc_fragment1 : Fragment() {
         }
         val addButton = dialogView.findViewById<Button>(R.id.addbutton)
         addButton.setOnClickListener {
+            val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.click)
+            mediaPlayer.start()
             val bigMacNameTextView = dialogView.findViewById<TextView>(R.id.bigmac_name)
             val bigMacCalTextView = dialogView.findViewById<TextView>(R.id.bigmac_cal)
             val bigMacChTextView = dialogView.findViewById<TextView>(R.id.bigmac_ch)
