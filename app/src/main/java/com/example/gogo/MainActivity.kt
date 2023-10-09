@@ -34,5 +34,9 @@ class MainActivity : ComponentActivity() {
             startActivity(intent)
             finish()
         }
+        binding.button04.setOnClickListener {
+            val intent = Intent(this, Calender::class.java)
+            startActivity(intent)
+        }
     }
 }
