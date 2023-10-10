@@ -1,6 +1,7 @@
 package com.example.gogo
 
 import android.annotation.SuppressLint
+import android.content.ClipData
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +22,6 @@ class FoodItemAdapter(private val foodItemList: ArrayList<FoodItem>, private val
         val textViewNatrium: TextView = itemView.findViewById(R.id.textViewNatrium)
         val buttonDelete: Button = itemView.findViewById(R.id.delete_button)
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food_edit, parent, false)
         return ViewHolder(view)
