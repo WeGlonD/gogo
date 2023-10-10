@@ -39,6 +39,12 @@ class Graphs : AppCompatActivity() {
                 var totalProtein = 0f
                 var totalNatrium = 0f
 
+                var esCalories = 0f
+                var esCarboHydrates = 0f
+                var esProtein= 0f
+                var esFat = 0f
+                var esNatrium = 0f
+
                 for (itemSnapshot in dataSnapshot.children) {
                     val foodItem = itemSnapshot.getValue(FoodItem::class.java)
                     if (foodItem != null) {
@@ -48,6 +54,52 @@ class Graphs : AppCompatActivity() {
                         totalProtein += foodItem.protein
                         totalNatrium += foodItem.natrium
                     }
+                }
+                //전체 1500, 130, 55, 51, 2000
+
+                if (totalCalories < 1500){
+                    esCalories = 1500 - totalCalories
+                    binding.shortcalories.setText(esCalories.toString())
+                }
+                else{
+                    esCalories = totalCalories - 1500
+                    binding.excesscalories.setText(esCalories.toString())
+                }
+
+                if (totalCarbohydrates < 130){
+                    esCarboHydrates = 130 - totalCarbohydrates
+                    binding.shortcarbohydrates.setText(esCarboHydrates.toString())
+                }
+                else{
+                    esCarboHydrates = totalCarbohydrates - 130
+                    binding.excesscarbohydrates.setText(esCarboHydrates.toString())
+                }
+
+                if (totalProtein < 55){
+                    esProtein = 55 - totalProtein
+                    binding.shortprotein.setText(esProtein.toString())
+                }
+                else{
+                    esProtein = totalProtein - 55
+                    binding.excessprotein.setText(esProtein.toString())
+                }
+
+                if (totalFat < 51){
+                    esFat = 51 - totalFat
+                    binding.shortfat.setText(esFat.toString())
+                }
+                else{
+                    esFat = totalFat - 51
+                    binding.excessfat.setText(esFat.toString())
+                }
+
+                if (totalNatrium < 2000){
+                    esNatrium = 2000 - totalNatrium
+                    binding.shortnatrium.setText(esNatrium.toString())
+                }
+                else{
+                    esNatrium = totalNatrium - 2000
+                    binding.excessnatrium .setText(esNatrium.toString())
                 }
 
                 totalCalories /= 1500
@@ -90,7 +142,7 @@ class Graphs : AppCompatActivity() {
                 barChart.xAxis.setDrawGridLines(false) // Remove vertical grid lines
                 barChart.axisLeft.setDrawGridLines(false) // Remove horizontal grid lines
                 barChart.axisRight.setDrawGridLines(false) // Remove horizontal
-
+                barChart.setTouchEnabled(false)
                 barChart.invalidate()
             }
 

@@ -42,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(binding.emailEdt.text.toString(), binding.passwordEdt.text.toString())
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
-                    // email로 로그인
                     moveMainPage(task.result?.user)
                 }else if(task.exception?.message.isNullOrEmpty()){
                     Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
