@@ -48,8 +48,11 @@ class cartActivity : ComponentActivity() {
                         newReference.child(key!!).setValue(it)
                     }
                 }
-                mcReference.removeValue()
-                adapter.notifyDataSetChanged()
+                mcReference.removeValue().addOnSuccessListener {
+                    foodItemList.clear()
+                    keyList.clear()
+                    adapter.notifyDataSetChanged()
+                }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

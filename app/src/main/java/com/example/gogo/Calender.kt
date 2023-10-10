@@ -1,6 +1,7 @@
 package com.example.gogo
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.CalendarView
 import android.widget.CalendarView.OnDateChangeListener
@@ -27,14 +28,14 @@ class Calender : AppCompatActivity() {
         today = binding.today
         calendarView = binding.calendarView
 
-        //날짜변환
         val formatter: DateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
         val date = Date(calendarView.getDate())
         today.setText(formatter.format(date))
         calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
-            val day: String
-            day = year.toString() + "년" + (month + 1) + "월" + dayOfMonth + "일"
-            today.setText(day)
+            val day: Int = (year * 10000) + ((month + 1) * 100) + dayOfMonth
+            val intent = Intent(this, Graphs::class.java)
+            intent.putExtra("selectedDate", day)
+            startActivity(intent)
         })
     }
 }

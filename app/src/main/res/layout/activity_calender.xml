@@ -10,7 +10,6 @@
         android:id="@+id/today"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2023년10월09일"
         android:textSize="20sp"
         android:layout_above="@+id/calendarView"
         android:layout_centerHorizontal="true"/>
