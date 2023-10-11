@@ -12,6 +12,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.gogo.FoodItem
@@ -41,10 +42,10 @@ class mc_fragment1 : Fragment() {
         button.setOnClickListener {
             activity?.finish()
         }
-        val mcBurger01 = view.findViewById<ImageButton>(R.id.mcburger01)
-        mcBurger01.setOnClickListener {
-            showCustomDialog(R.layout.popup_mc_a)
-        }
+//        val mcBurger01 = view.findViewById<ImageView>(R.id.mcburger01)
+//        mcBurger01.setOnClickListener {
+//            showCustomDialog(R.layout.popup_mc_a)
+//        }
         val floatingActionButton = view.findViewById<FloatingActionButton>(R.id.floatingbutton)
         floatingActionButton.setOnClickListener {
             val intent = Intent(this.requireContext(), cartActivity::class.java)
@@ -75,23 +76,20 @@ class mc_fragment1 : Fragment() {
         addButton.setOnClickListener {
             val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.click)
             mediaPlayer.start()
-            val bigMacNameTextView = dialogView.findViewById<TextView>(R.id.bigmac_name)
             val bigMacCalTextView = dialogView.findViewById<TextView>(R.id.bigmac_cal)
             val bigMacChTextView = dialogView.findViewById<TextView>(R.id.bigmac_ch)
             val bigMacPrTextView = dialogView.findViewById<TextView>(R.id.bigmac_pr)
             val bigMacFtTextView = dialogView.findViewById<TextView>(R.id.bigmac_ft)
             val bigMacNtTextView = dialogView.findViewById<TextView>(R.id.bigmac_nt)
 
-            val nameValue = bigMacNameTextView.text
+
             val calValue = bigMacCalTextView.text.toString().toInt()
             val chValue = bigMacChTextView.text.toString().toInt()
             val prValue = bigMacPrTextView.text.toString().toInt()
             val ftValue = bigMacFtTextView.text.toString().toInt()
             val ntValue = bigMacNtTextView.text.toString().toInt()
 
-            if (foodItem.name.isEmpty()) {
-                foodItem.name += nameValue
-            }
+
             if (foodItem.calories == 0) {
                 foodItem.calories += calValue
             }

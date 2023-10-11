@@ -1,7 +1,6 @@
 package com.example.gogo
 
 import android.annotation.SuppressLint
-import android.content.ClipData
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -57,11 +56,6 @@ class FoodItemAdapter(private val foodItemList: ArrayList<FoodItem>, private val
 
         }
     }
-
-
-
-
-
     override fun getItemCount(): Int {
         return foodItemList.size
     }

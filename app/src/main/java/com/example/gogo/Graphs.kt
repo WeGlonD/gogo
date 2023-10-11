@@ -130,7 +130,6 @@ class Graphs : AppCompatActivity() {
                 data.barWidth = 0.9f
 
                 barChart.data = data
-                /*barChart.setFitBars(true)*/
                 barChart.xAxis.valueFormatter = IndexAxisValueFormatter(labels)
                 barChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
                 barChart.xAxis.granularity = 1f

@@ -15,7 +15,7 @@
         android:clipToPadding="false"
         android:padding="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_food" />
+        tools:listitem="@layout/item_food_edit" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

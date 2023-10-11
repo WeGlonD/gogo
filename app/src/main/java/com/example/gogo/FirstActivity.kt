@@ -15,7 +15,9 @@ class FirstActivity : ComponentActivity() {
         setContentView(binding.root)
 
         binding.button11.setOnClickListener {
-            val intent = Intent(this, McActivity::class.java)
+            val res = "Mc"
+            val intent = Intent(this, RestaurantActivity::class.java)
+            intent.putExtra("restaurant",res)
             startActivity(intent)
         }
         binding.gotomain.setOnClickListener {

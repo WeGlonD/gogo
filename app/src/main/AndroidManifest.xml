@@ -61,6 +61,12 @@
         </activity>
 
         <activity
+            android:name=".RestaurantActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Gogo">
+        </activity>
+
+        <activity
             android:name=".Graphs"
             android:exported="true"
             android:theme="@style/Theme.Gogo">
