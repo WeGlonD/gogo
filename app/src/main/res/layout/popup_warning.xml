@@ -10,6 +10,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_margin="20dp"
             android:text="확정한 뒤엔 변경할 수 없습니다.\n 정말 확정하시겠습니까?"
             android:textSize="20dp"
             android:textStyle="normal" />
@@ -25,6 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="5dp"
                 android:text="확정" />
 
             <Button

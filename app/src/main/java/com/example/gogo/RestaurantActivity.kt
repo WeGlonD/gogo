@@ -40,11 +40,11 @@ class RestaurantActivity: AppCompatActivity() {
     fun setActivityInfo(restaurant: String) {
         binding.textView.text = restaurant
         when (restaurant) {
-            "Mc" -> {
+            "Mcdonald's" -> {
                 binding.imageView.setImageResource(R.drawable.mcdonalds)
             }
-            "Lotteria" -> {
-                binding.imageView.setImageResource(R.drawable.tray)
+            "LOTTERIA" -> {
+                binding.imageView.setImageResource(R.drawable.lotteria)
             }
         }
         databaseReference = FirebaseDatabase.getInstance().reference

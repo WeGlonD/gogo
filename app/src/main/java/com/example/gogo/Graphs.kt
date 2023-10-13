@@ -55,7 +55,6 @@ class Graphs : AppCompatActivity() {
                         totalNatrium += foodItem.natrium
                     }
                 }
-                //전체 1500, 130, 55, 51, 2000
 
                 if (totalCalories < 1500){
                     esCalories = 1500 - totalCalories
@@ -116,15 +115,26 @@ class Graphs : AppCompatActivity() {
 
                 val entries = mutableListOf<BarEntry>()
                 entries.add(BarEntry(0f, totalCalories))
-                entries.add(BarEntry(1f, totalFat))
-                entries.add(BarEntry(2f, totalCarbohydrates))
-                entries.add(BarEntry(3f, totalProtein))
+                entries.add(BarEntry(1f, totalCarbohydrates))
+                entries.add(BarEntry(2f, totalProtein))
+                entries.add(BarEntry(3f, totalFat))
                 entries.add(BarEntry(4f, totalNatrium))
 
+                val colors = mutableListOf<Int>()
+                for (i in entries.indices) {
+                    //부족
+                    if (entries[i].y < 100) {
+                        colors.add(Color.BLUE)
+                    }
+                    else {
+                        //초과
+                        colors.add(Color.RED)
+                    }
+                }
                 val dataSet = BarDataSet(entries, "일일 권장 섭취량 대비 섭취량(%)")
-                dataSet.color = Color.BLACK
+                dataSet.colors = colors
 
-                val labels = listOf("칼로리", "지방", "탄수화물", "단백질", "나트륨")
+                val labels = listOf("칼로리", "탄수화물", "단백질", "지방", "나트륨")
 
                 val data = BarData(dataSet)
                 data.barWidth = 0.9f
@@ -135,6 +145,8 @@ class Graphs : AppCompatActivity() {
                 barChart.xAxis.granularity = 1f
                 barChart.description.isEnabled = false
                 barChart.axisLeft.axisMinimum = 0f
+                barChart.axisLeft.axisMaximum = 100f
+                barChart.axisRight.axisMaximum = 100f
                 barChart.axisRight.axisMinimum = 0f
 
                 barChart.setDrawGridBackground(false) // Remove grid background

@@ -15,7 +15,14 @@ class FirstActivity : ComponentActivity() {
         setContentView(binding.root)
 
         binding.button11.setOnClickListener {
-            val res = "Mc"
+            val res = "Mcdonald's"
+            val intent = Intent(this, RestaurantActivity::class.java)
+            intent.putExtra("restaurant",res)
+            startActivity(intent)
+        }
+
+        binding.button12.setOnClickListener {
+            val res = "LOTTERIA"
             val intent = Intent(this, RestaurantActivity::class.java)
             intent.putExtra("restaurant",res)
             startActivity(intent)

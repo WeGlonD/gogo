@@ -24,12 +24,10 @@ class Calender : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityCalenderBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        today = binding.today
         calendarView = binding.calendarView
 
         val formatter: DateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
         val date = Date(calendarView.getDate())
-        today.setText(formatter.format(date))
         calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
             val day: Int = (year * 10000) + ((month + 1) * 100) + dayOfMonth
             val intent = Intent(this, Graphs::class.java)
