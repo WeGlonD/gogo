@@ -59,7 +59,6 @@ class RestaurantActivity: AppCompatActivity() {
                     val foodItem = dataSnapshot.getValue(FoodItem::class.java)
                     foodItemList.add(foodItem!!)
                 }
-
                 mcAdapter.notifyDataSetChanged()
             }
 
