@@ -72,7 +72,7 @@ class InfoActivity : ComponentActivity(){
                     val weight: Int? = weightInput.toIntOrNull()
                     val height: Int? = heightInput.toIntOrNull()
                     val age: Int? = ageInput.toIntOrNull()
-                    if (weight != null && height != null && age != null) {
+                    if (weight != null && weight <=300 && weight>=20 && height != null && height>=0 && height<=220 && age != null && age>=0 && age<=150) {
                         if (genderInput == "M" || genderInput == "F") {
                             val InfoItemRef = databaseReference.push()
 
@@ -91,11 +91,12 @@ class InfoActivity : ComponentActivity(){
                             binding.textGender1.isEnabled = false
                             binding.textHeight1.isEnabled = false
                             binding.textWeight1.isEnabled = false
+                            finish()
                         } else {
                             Toast.makeText(this, "성별을 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        Toast.makeText(this, "숫자를 입력해주세요", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "값을 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
