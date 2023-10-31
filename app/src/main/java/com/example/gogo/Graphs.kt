@@ -2,8 +2,6 @@ package com.example.gogo
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gogo.databinding.ActivityGraphsBinding
 import com.github.mikephil.charting.charts.BarChart
@@ -40,9 +38,9 @@ class Graphs : AppCompatActivity() {
         }
 
         var yourcalories = 2000f
-        var yourfat = 51f
-        var yourcarbohydrates = 130f
-        var yourprotein = 55f
+        var yourfat = 67f
+        var yourcarbohydrates = 275f
+        var yourprotein = 75f
 
         databaseReference2.get().addOnSuccessListener { snapshot ->
             if (snapshot.exists()) {
