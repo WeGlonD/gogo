@@ -76,5 +76,10 @@
             android:theme="@style/Theme.Gogo">
         </activity>
 
+        <activity android:name=".HouseActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Gogo">
+        </activity>
+
     </application>
 </manifest>

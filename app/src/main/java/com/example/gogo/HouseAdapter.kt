@@ -10,14 +10,16 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class McAdapter (private val foodItemList: ArrayList<FoodItem>, private val context: Context, private val databaseReference: DatabaseReference) : RecyclerView.Adapter<McAdapter.ViewHolder>(){
+class HouseAdapter (private val foodItemList: ArrayList<FoodItem>, private val context: Context, private val databaseReference: DatabaseReference) : RecyclerView.Adapter<HouseAdapter.ViewHolder>(){
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val NameText: TextView = itemView.findViewById(R.id.titletextview)
@@ -28,12 +30,12 @@ class McAdapter (private val foodItemList: ArrayList<FoodItem>, private val cont
         val NatriumText: TextView = itemView.findViewById(R.id.text_nt)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): McAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HouseAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.test2, parent, false)
-        return McAdapter.ViewHolder(view)
+        return HouseAdapter.ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: McAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HouseAdapter.ViewHolder, position: Int) {
         val foodItem = foodItemList[position]
         holder.NameText.text = foodItem.name
         holder.CaloriesText.text = "${foodItem.calories}"
@@ -52,7 +54,7 @@ class McAdapter (private val foodItemList: ArrayList<FoodItem>, private val cont
     }
 
     private fun showCustomDialog(foodItem: FoodItem) {
-        val dialogView = LayoutInflater.from(context).inflate(R.layout.popup_mc_a, null)
+        val dialogView = LayoutInflater.from(context).inflate(R.layout.popup_house, null)
 
         val dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -60,20 +62,20 @@ class McAdapter (private val foodItemList: ArrayList<FoodItem>, private val cont
 
         val layoutParams = WindowManager.LayoutParams().apply {
             copyFrom(dialog.window?.attributes)
-            width = WindowManager.LayoutParams.MATCH_PARENT
+            width = WindowManager.LayoutParams.WRAP_CONTENT
             height = WindowManager.LayoutParams.WRAP_CONTENT
             gravity = Gravity.CENTER
         }
         dialog.window?.attributes = layoutParams
 
-        val bigMacNameTextView = dialogView.findViewById<TextView>(R.id.bigmac_name)
-        val bigMacCalTextView = dialogView.findViewById<TextView>(R.id.bigmac_cal)
-        val bigMacChTextView = dialogView.findViewById<TextView>(R.id.bigmac_ch)
-        val bigMacPrTextView = dialogView.findViewById<TextView>(R.id.bigmac_pr)
-        val bigMacFtTextView = dialogView.findViewById<TextView>(R.id.bigmac_ft)
-        val bigMacNtTextView = dialogView.findViewById<TextView>(R.id.bigmac_nt)
+        val bigMacNameTextView = dialogView.findViewById<TextView>(R.id.house_name)
+        val bigMacCalTextView = dialogView.findViewById<TextView>(R.id.house_cal)
+        val bigMacChTextView = dialogView.findViewById<TextView>(R.id.house_ch)
+        val bigMacPrTextView = dialogView.findViewById<TextView>(R.id.house_pr)
+        val bigMacFtTextView = dialogView.findViewById<TextView>(R.id.house_ft)
+        val bigMacNtTextView = dialogView.findViewById<TextView>(R.id.house_nt)
 
-        bigMacNameTextView.text = foodItem.name
+        bigMacNameTextView.text = "${foodItem.name} 1(g)"
         bigMacCalTextView.text = foodItem.calories.toString()
         bigMacChTextView.text = foodItem.carbohydrates.toString()
         bigMacPrTextView.text = foodItem.protein.toString()
@@ -86,21 +88,36 @@ class McAdapter (private val foodItemList: ArrayList<FoodItem>, private val cont
         }
         val addButton = dialogView.findViewById<Button>(R.id.addbutton)
         addButton.setOnClickListener {
-
-            val mediaPlayer = MediaPlayer.create(context, R.raw.click)
-            mediaPlayer.start()
-
             val currentUser = FirebaseAuth.getInstance().currentUser
             val uid = currentUser?.uid
 
-            if (uid != null) {
+            val edtext = dialogView.findViewById<EditText>(R.id.howmuch)
+            val howmuch = edtext.text.toString().toIntOrNull()
+            if (howmuch != null){
+                val mediaPlayer = MediaPlayer.create(context, R.raw.click)
+                mediaPlayer.start()
+
+                foodItem.protein *= howmuch
+                foodItem.natrium *= howmuch
+                foodItem.carbohydrates *= howmuch
+                foodItem.fat *= howmuch
+                foodItem.calories *= howmuch
+
                 val databasePath = "cart/$uid"
                 val foodItemRef = databaseReference.child(databasePath).push()
                 foodItemRef.setValue(foodItem).addOnSuccessListener {
+                    foodItem.protein /= howmuch
+                    foodItem.natrium /= howmuch
+                    foodItem.carbohydrates /= howmuch
+                    foodItem.fat /= howmuch
+                    foodItem.calories /= howmuch
                     dialog.dismiss()
                 }
+            }else{
+                Toast.makeText(dialogView.context, "숫자를 입력해주세요", Toast.LENGTH_SHORT).show()
             }
         }
+
         dialog.show()
     }
 }
