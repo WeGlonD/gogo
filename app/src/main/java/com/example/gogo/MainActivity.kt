@@ -21,6 +21,11 @@ class MainActivity : ComponentActivity() {
         setContentView(binding.root)
 
         binding.button01.setOnClickListener {
+            val intent = Intent(this, PrimeActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.button06.setOnClickListener {
             val intent = Intent(this, FirstActivity::class.java)
             startActivity(intent)
         }

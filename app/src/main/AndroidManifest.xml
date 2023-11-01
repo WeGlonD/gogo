@@ -71,5 +71,10 @@
             android:theme="@style/Theme.Gogo">
         </activity>
 
+        <activity android:name=".PrimeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Gogo">
+        </activity>
+
     </application>
 </manifest>

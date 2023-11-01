@@ -48,7 +48,17 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_bt"
                 android:gravity="center"
-                android:text="프랜차이즈" />
+                android:text="직접 해먹어요" />
+
+            <Button
+                android:id="@+id/button06"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_bt"
+                android:gravity="center"
+                android:text="외식할래요" />
 
             <Button
                 android:id="@+id/button02"

@@ -47,6 +47,7 @@ class InfoActivity : ComponentActivity(){
                         binding.textHeight1.isEnabled = false
                         binding.textWeight1.isEnabled = false
                         binding.infoConfirm.text = "수정하기"
+
                     } else {
                         Toast.makeText(this, "데이터가 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
                     }
@@ -82,7 +83,6 @@ class InfoActivity : ComponentActivity(){
                                 "height" to height.toString(),
                                 "weight" to weight.toString()
                             )
-
                             InfoItemRef.setValue(infoMap)
 
                             binding.infoConfirm.text = "수정하기"

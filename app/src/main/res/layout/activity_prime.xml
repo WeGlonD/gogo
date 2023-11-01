@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/wholeprime"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/primetext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="카테고리"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:shadowRadius="10.0"
+        android:shadowColor="#000000"
+        android:textSize="32sp"
+        android:textStyle="normal"
+        app:layout_constraintTop_toTopOf="@id/wholeprime"
+        app:layout_constraintBottom_toTopOf="@id/primelayout"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/primelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/primetext"
+        android:layout_marginHorizontal="45dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/firstconst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/secondconst"
+            app:layout_constraintEnd_toEndOf="@id/primelayout"
+            app:layout_constraintStart_toStartOf="@id/primelayout"
+            app:layout_constraintTop_toTopOf="@id/primelayout">
+
+            <ImageButton
+                android:id="@+id/menu11"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/vege"
+                app:layout_constraintBottom_toBottomOf="@id/firstconst"
+                app:layout_constraintEnd_toStartOf="@+id/menu12"
+                app:layout_constraintStart_toStartOf="@id/firstconst"
+                app:layout_constraintTop_toTopOf="@id/firstconst" />
+
+            <ImageButton
+                android:id="@+id/menu12"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fruit"
+                app:layout_constraintBottom_toBottomOf="@id/firstconst"
+                app:layout_constraintEnd_toStartOf="@+id/menu13"
+                app:layout_constraintStart_toEndOf="@id/menu11"
+                app:layout_constraintTop_toTopOf="@id/firstconst" />
+
+            <ImageButton
+                android:id="@+id/menu13"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/grain"
+                app:layout_constraintBottom_toBottomOf="@id/firstconst"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/menu12"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.529" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/secondconst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/thirdconst"
+            app:layout_constraintEnd_toEndOf="@id/primelayout"
+            app:layout_constraintStart_toStartOf="@id/primelayout"
+            app:layout_constraintTop_toBottomOf="@id/firstconst">
+
+            <ImageButton
+                android:id="@+id/menu21"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mushroom"
+                app:layout_constraintEnd_toStartOf="@+id/menu22"
+                app:layout_constraintStart_toStartOf="@id/secondconst"
+                app:layout_constraintTop_toTopOf="@id/secondconst" />
+
+            <ImageButton
+                android:id="@+id/menu22"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/meat"
+                app:layout_constraintEnd_toStartOf="@+id/menu23"
+                app:layout_constraintStart_toEndOf="@id/menu21"
+                app:layout_constraintTop_toTopOf="@id/secondconst" />
+
+            <ImageButton
+                android:id="@+id/menu23"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fish"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/menu22"
+                app:layout_constraintTop_toTopOf="@id/secondconst" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/thirdconst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/primelayout"
+            app:layout_constraintStart_toStartOf="@id/primelayout"
+            app:layout_constraintTop_toBottomOf="@id/secondconst">
+
+            <ImageButton
+                android:id="@+id/menu31"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/seaweed"
+                app:layout_constraintEnd_toStartOf="@+id/menu32"
+                app:layout_constraintStart_toStartOf="@id/thirdconst"
+                app:layout_constraintTop_toTopOf="@id/thirdconst" />
+
+            <ImageButton
+                android:id="@+id/menu32"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/seafood"
+                app:layout_constraintEnd_toStartOf="@+id/menu33"
+                app:layout_constraintStart_toEndOf="@id/menu31"
+                app:layout_constraintTop_toTopOf="@id/thirdconst" />
+
+            <ImageButton
+                android:id="@+id/menu33"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/nuts"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/menu32"
+                app:layout_constraintTop_toTopOf="@id/thirdconst" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fourthconst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/primelayout"
+            app:layout_constraintStart_toStartOf="@id/primelayout"
+            app:layout_constraintTop_toBottomOf="@id/thirdconst">
+
+            <ImageButton
+                android:id="@+id/menu41"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/lactose"
+                app:layout_constraintEnd_toStartOf="@+id/menu42"
+                app:layout_constraintStart_toStartOf="@id/fourthconst"
+                app:layout_constraintTop_toTopOf="@id/fourthconst" />
+
+            <ImageButton
+                android:id="@+id/menu42"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/condi"
+                app:layout_constraintEnd_toStartOf="@+id/menu43"
+                app:layout_constraintStart_toEndOf="@id/menu41"
+                app:layout_constraintTop_toTopOf="@id/fourthconst" />
+
+            <ImageButton
+                android:id="@+id/menu43"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/sauce"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/menu42"
+                app:layout_constraintTop_toTopOf="@id/fourthconst" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fifthconst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/primelayout"
+            app:layout_constraintStart_toStartOf="@id/primelayout"
+            app:layout_constraintTop_toBottomOf="@id/fourthconst">
+
+            <ImageButton
+                android:id="@+id/menu51"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/processed"
+                app:layout_constraintEnd_toStartOf="@+id/menu52"
+                app:layout_constraintStart_toStartOf="@id/fifthconst"
+                app:layout_constraintTop_toTopOf="@id/fifthconst" />
+
+            <ImageButton
+                android:id="@+id/menu52"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/drink"
+                app:layout_constraintEnd_toStartOf="@+id/menu53"
+                app:layout_constraintStart_toEndOf="@id/menu51"
+                app:layout_constraintTop_toTopOf="@id/fifthconst" />
+
+            <ImageButton
+                android:id="@+id/menu53"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ramyun"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/menu52"
+                app:layout_constraintTop_toTopOf="@id/fifthconst" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
