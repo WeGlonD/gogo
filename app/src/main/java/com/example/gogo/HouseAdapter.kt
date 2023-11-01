@@ -11,6 +11,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
@@ -18,8 +19,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 
-class HouseAdapter (private val foodItemList: ArrayList<FoodItem>, private val context: Context, private val databaseReference: DatabaseReference) : RecyclerView.Adapter<HouseAdapter.ViewHolder>(){
+class HouseAdapter (private val foodItemList: ArrayList<FoodItem>, private val context: Context, private val databaseReference: DatabaseReference, val restaurant: String) : RecyclerView.Adapter<HouseAdapter.ViewHolder>(){
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val NameText: TextView = itemView.findViewById(R.id.titletextview)
@@ -28,6 +30,11 @@ class HouseAdapter (private val foodItemList: ArrayList<FoodItem>, private val c
         val ProteinText: TextView = itemView.findViewById(R.id.text_pr)
         val FatText: TextView = itemView.findViewById(R.id.text_ft)
         val NatriumText: TextView = itemView.findViewById(R.id.text_nt)
+        val imageView: ImageView = itemView.findViewById(R.id.titleimageview)
+        fun loadImage(restaurant: String, name: String) {
+            val storageReference = FirebaseStorage.getInstance().getReference("Housefood/$restaurant/$name.png")
+            GlideApp.with(itemView.context).load(storageReference).into(imageView)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HouseAdapter.ViewHolder {
@@ -43,7 +50,7 @@ class HouseAdapter (private val foodItemList: ArrayList<FoodItem>, private val c
         holder.ProteinText.text = "${foodItem.protein}"
         holder.FatText.text = "${foodItem.fat}"
         holder.NatriumText.text = "${foodItem.natrium}"
-
+        holder.loadImage(restaurant, foodItem.name)
         holder.itemView.setOnClickListener {
             showCustomDialog(foodItem)
         }
@@ -74,6 +81,12 @@ class HouseAdapter (private val foodItemList: ArrayList<FoodItem>, private val c
         val bigMacPrTextView = dialogView.findViewById<TextView>(R.id.house_pr)
         val bigMacFtTextView = dialogView.findViewById<TextView>(R.id.house_ft)
         val bigMacNtTextView = dialogView.findViewById<TextView>(R.id.house_nt)
+        val bigMacImageView = dialogView.findViewById<ImageView>(R.id.imageView)
+
+        fun loadImage(restaurant: String, name: String) {
+            val storageReference = FirebaseStorage.getInstance().getReference("Housefood/$restaurant/$name.png")
+            GlideApp.with(dialogView.context).load(storageReference).into(bigMacImageView)
+        }
 
         bigMacNameTextView.text = "${foodItem.name} 1(g)"
         bigMacCalTextView.text = foodItem.calories.toString()
@@ -81,7 +94,7 @@ class HouseAdapter (private val foodItemList: ArrayList<FoodItem>, private val c
         bigMacPrTextView.text = foodItem.protein.toString()
         bigMacFtTextView.text = foodItem.fat.toString()
         bigMacNtTextView.text = foodItem.natrium.toString()
-
+        loadImage(restaurant, foodItem.name)
         val closeButton = dialogView.findViewById<Button>(R.id.closeButton)
         closeButton.setOnClickListener {
             dialog.dismiss()

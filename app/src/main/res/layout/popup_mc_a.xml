@@ -10,8 +10,9 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:src="@drawable/bigmac"
+
         />
+    <!--android:src="@drawable/bigmac" -->
     <TextView
         android:id="@+id/bigmac_name"
         android:layout_width="match_parent"

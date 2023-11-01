@@ -46,55 +46,10 @@ class RestaurantActivity: AppCompatActivity() {
             "LOTTERIA" -> {
                 binding.imageView.setImageResource(R.drawable.lotteria)
             }
-            "채소" ->{
-                binding.imageView.setImageResource(R.drawable.vege)
-            }
-            "과일" ->{
-                binding.imageView.setImageResource(R.drawable.fruit)
-            }
-            "곡물" ->{
-                binding.imageView.setImageResource(R.drawable.grain)
-            }
-            "버섯" ->{
-                binding.imageView.setImageResource(R.drawable.mushroom)
-            }
-            "육류" ->{
-                binding.imageView.setImageResource(R.drawable.meat)
-            }
-            "생선" ->{
-                binding.imageView.setImageResource(R.drawable.fish)
-            }
-            "해조류" ->{
-                binding.imageView.setImageResource(R.drawable.seaweed)
-            }
-            "해산물" ->{
-                binding.imageView.setImageResource(R.drawable.seafood)
-            }
-            "견과류" ->{
-                binding.imageView.setImageResource(R.drawable.nuts)
-            }
-            "유제품" ->{
-                binding.imageView.setImageResource(R.drawable.lactose)
-            }
-            "조미료" ->{
-                binding.imageView.setImageResource(R.drawable.condi)
-            }
-            "양념" ->{
-                binding.imageView.setImageResource(R.drawable.sauce)
-            }
-            "가공식품" ->{
-                binding.imageView.setImageResource(R.drawable.processed)
-            }
-            "음료" ->{
-                binding.imageView.setImageResource(R.drawable.drink)
-            }
-            "라면" ->{
-                binding.imageView.setImageResource(R.drawable.ramyun)
-            }
         }
         databaseReference = FirebaseDatabase.getInstance().reference
 
-        val mcAdapter = McAdapter(foodItemList,this, databaseReference)
+        val mcAdapter = McAdapter(foodItemList,this, databaseReference,restaurant)
         binding.foodRecyclerView.adapter = mcAdapter
 
         databaseReference.child(restaurant).addValueEventListener(object: ValueEventListener {

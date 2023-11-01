@@ -11,8 +11,9 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginHorizontal="30dp"
-        android:src="@drawable/vege"
+
         />
+    <!--android:src="@drawable/vege"-->
     <TextView
         android:id="@+id/house_name"
         android:layout_width="match_parent"

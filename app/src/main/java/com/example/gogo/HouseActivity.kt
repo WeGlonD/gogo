@@ -88,7 +88,7 @@ class HouseActivity: AppCompatActivity() {
         }
         databaseReference = FirebaseDatabase.getInstance().reference
 
-        val houseAdapter = HouseAdapter(foodItemList,this, databaseReference)
+        val houseAdapter = HouseAdapter(foodItemList,this, databaseReference,restaurant)
         binding.foodRecyclerView.adapter = houseAdapter
 
         databaseReference.child(restaurant).addValueEventListener(object: ValueEventListener {

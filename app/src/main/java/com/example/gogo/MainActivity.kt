@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.gogo.databinding.ActivityMainBinding
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -20,6 +21,11 @@ class MainActivity : ComponentActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Firebase 초기화 코드
+        FirebaseApp.initializeApp(this) // Firebase 앱을 초기화
+
+        // Firebase 인증 초기화
+        auth = FirebaseAuth.getInstance()
         binding.button01.setOnClickListener {
             val intent = Intent(this, PrimeActivity::class.java)
             startActivity(intent)
